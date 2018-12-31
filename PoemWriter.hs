@@ -37,7 +37,7 @@ writePoem muse =
 
 exec :: [Text] -> Text
 exec ["poem", muse] = writePoem muse
-exec ["say", message] = decorate message
+exec ("say": message) = decorate $ Data.Text.unwords message
 exec ["exit"] = decorate "Bye cruel world!"
 exec ["help"] = helpText
 exec x =
