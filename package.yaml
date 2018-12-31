@@ -13,6 +13,8 @@ description: haskell notepad.
 
 dependencies:
 - base >= 4.7 && < 5
+- text
+- neat-interpolation
 
 executables:
   haskell-notepad-exe:
