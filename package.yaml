@@ -1,0 +1,25 @@
+name:                haskell-notepad
+version:             0.1.0.0
+github:              "alextes/haskell-notepad"
+license:             MIT
+author:              "Alexander Tesfamichael"
+maintainer:          "alex.tesfamichael@gmail.com"
+copyright:           "2018 Alexander Tesfamichael"
+
+extra-source-files:
+- README.md
+
+description: haskell notepad.
+
+dependencies:
+- base >= 4.7 && < 5
+
+executables:
+  haskell-notepad-exe:
+    main:                Main.hs
+    source-dirs:         .
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+
