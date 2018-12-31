@@ -45,8 +45,13 @@ exec x =
   where
     input = Data.Text.unwords x
 
+userInputs = [
+  "Incorrect command",
+  "say Welcome to the mean poem machine",
+  "poem reader",
+  "exit"
+  ]
+
 main = do
-  input <- getLine
-  let textInput = pack input
-  let textOutput = exec $ Data.Text.words textInput
-  putStrLn $ unpack textOutput
+  let textOutputs = Prelude.map (exec . Data.Text.words) userInputs
+  mapM_ (putStrLn . unpack) textOutputs
