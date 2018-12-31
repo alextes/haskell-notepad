@@ -4,7 +4,7 @@
 module PoemWriter where
 
 import           Data.Text
-import Data.Text (pack)
+import           Data.Text         (pack)
 import           NeatInterpolation
 
 helpText :: Text
@@ -37,19 +37,18 @@ writePoem muse =
 
 exec :: [Text] -> Text
 exec ["poem", muse] = writePoem muse
-exec ("say": message) = decorate $ Data.Text.unwords message
+exec ("say":message) = decorate $ Data.Text.unwords message
 exec ["exit"] = decorate "Bye cruel world!"
 exec ["help"] = helpText
-exec x =
-  [text|"'${input}' was an example of an incorrect command"|]
+exec x = [text|"'${input}' was an example of an incorrect command"|]
   where
     input = Data.Text.unwords x
 
-userInputs = [
-  "Incorrect command",
-  "say Welcome to the mean poem machine",
-  "poem reader",
-  "exit"
+userInputs =
+  [ "Incorrect command"
+  , "say Welcome to the mean poem machine"
+  , "poem reader"
+  , "exit"
   ]
 
 main = do
