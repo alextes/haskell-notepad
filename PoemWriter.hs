@@ -38,7 +38,7 @@ writePoem muse =
 exec :: [Text] -> Text
 exec ["poem", muse] = writePoem muse
 exec ["say", message] = decorate message
-exec ["exit"] = "Bye cruel world!"
+exec ["exit"] = decorate "Bye cruel world!"
 exec ["help"] = helpText
 exec x =
   [text|"'${input}' was an example of an incorrect command"|]
